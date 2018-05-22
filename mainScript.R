@@ -36,3 +36,31 @@ Weather[[1]][4]
 Weather[[2]] #this is matrix as well
 Weather[2] #this is a list with header
 Weather$NewYork #this is a matrix
+
+
+#using apply()
+?apply
+Chicago
+apply(Chicago, 1, mean) #1 means function applied to rows
+mean(Chicago["AvgHigh_F",])
+
+#analyze one city
+Chicago
+apply(Chicago, 1, max)
+apply(Chicago, 1, min)
+
+#Compare
+apply(Chicago, 1, mean)
+apply(Houston, 1, mean)
+apply(NewYork, 1, mean)
+(apply(SanFrancisco, 1, mean))
+is.data.frame(apply(SanFrancisco, 1, mean))
+
+#Recreating the apply function with loops (advanced topic)
+#find the mean of every row:
+
+output <- NULL #preparing an empty vector
+for(i in 1:nrow(Chicago)) {
+ output[i] <- mean(Chicago[i,])
+}
+output
