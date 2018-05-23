@@ -60,7 +60,40 @@ is.data.frame(apply(SanFrancisco, 1, mean))
 #find the mean of every row:
 
 output <- NULL #preparing an empty vector
+#find mean of every row with "for" loop
 for(i in 1:nrow(Chicago)) {
  output[i] <- mean(Chicago[i,])
 }
 output
+
+#check
+mean(Chicago["AvgHigh_F",])
+names(output) <- rownames(Chicago)
+output
+
+#find mean of every row with "apply" function
+apply(Chicago, 1, mean)
+
+#lapply function applied to only list or vector
+t(Chicago) # t means transpoze
+Weather
+lapply(Weather, t) #list(t(Weather$Chicago), t(Weather$NewYork), t(Weather$houston), t(Weather$SanFrancisco))
+Weather_t <- lapply(Weather, t)
+
+#example 1
+Chicago
+rbind(Chicago, newRow=1:12)
+lapply(Weather, rbind, NewRow=1:12) #lapply returns a list 
+
+#example 2
+?rowMeans
+rowMeans(Chicago)
+lapply(Weather, rowMeans) #returns of means of list components
+
+#no need to use seperate apply functions to add a new row which give mean of components
+#lapply is used for this
+
+#rowMeans
+#colMeans
+#rowSums
+#colSums
