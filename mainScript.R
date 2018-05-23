@@ -91,7 +91,7 @@ rowMeans(Chicago)
 lapply(Weather, rowMeans) #returns of means of list components
 
 #no need to use seperate apply functions to add a new row which give mean of components
-#lapply is used for this
+#lapply can be used for this to get improved results
 
 #rowMeans
 #colMeans
