@@ -98,4 +98,28 @@ lapply(Weather, rowMeans) #returns of means of list components
 #rowSums
 #colSums
 
+#Combining lapply with the [] operator
+Weather
+Weather[[1]][1,1]
+Weather$Chicago[1,1]
+?lapply
+
+
+lapply(Weather, "[", 1, 1) #"[" refers to the second brackets to take col and row names.
+lapply(Weather, "[", 1, )
+lapply(Weather, "[", , 2)
+
+#Adding my own functions
+lapply(Weather, rowMeans) #rowMeans get average of rows
+lapply(Weather, function(x) x[1,])
+lapply(Weather, function(x) x[5,])
+lapply(Weather, function(x) x[,12])
+lapply(Weather, function(x) x[,12])
+
+Weather
+lapply(Weather, function(y) y[1,]-y[2,])
+lapply(Weather, function(y) round((y[1,]-y[2,])/y[2,],2)) #round function is for to adjust decimal points
+
+
+
 
