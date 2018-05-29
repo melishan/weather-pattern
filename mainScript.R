@@ -108,7 +108,7 @@ Weather$Chicago[1,1]
 lapply(Weather, "[", 1, 1) #"[" refers to the second brackets to take col and row names.
 lapply(Weather, "[", 1, )
 lapply(Weather, "[", , 2)
-
+lapply(Weather, "[", 1, 3)
 #Adding my own functions
 lapply(Weather, rowMeans) #rowMeans get average of rows
 lapply(Weather, function(x) x[1,])
@@ -120,6 +120,27 @@ Weather
 lapply(Weather, function(y) y[1,]-y[2,])
 lapply(Weather, function(y) round((y[1,]-y[2,])/y[2,],2)) #round function is for to adjust decimal points
 
+#using sapply
+#it is simplier version of lapply 
+Weather
+#AvgHigh_F for July:
+lapply(Weather, "[", 1, 7) #bracket is to extract something from the list - the result also returns a list.
+a <- sapply(Weather, "[", 1, 7) #the result returns 
+is.matrix((sapply(Weather, "[", 1, 7)))
+#AvgHigh_F for 4th quarter:
+lapply(Weather, "[", 1, 10:12)
+(sapply(Weather, "[", 1, 10:12))
+is.matrix((sapply(Weather, "[", 1, 10:12)))
+lapply(Weather, rowMeans)
+sapply(Weather, rowMeans)
+round(sapply(Weather, rowMeans), 2)
+?rowMeans
 
+#another example:
+lapply(Weather, function(z) round((z[1,]-z[2,])/z[2,],2))
+sapply(Weather, function(z) round((z[1,]-z[2,])/z[2,],2))
+
+#sapply trick
+sapply(Weather, rowMeans, simplify = FALSE) #same as apply
 
 
