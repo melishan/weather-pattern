@@ -143,4 +143,32 @@ sapply(Weather, function(z) round((z[1,]-z[2,])/z[2,],2))
 #sapply trick
 sapply(Weather, rowMeans, simplify = FALSE) #same as apply
 
+#Nesting Apply Functions
+Weather
+lapply(Weather, rowMeans)
+?rowMeans
+#how can we look at maximum in rows?
+Chicago
+apply(Chicago, 1, max)
+#apply across whole list
+lapply(Weather, apply, 1, max) #lapply iterate over through Weather list it will pass those matrices to 
+#apply one by one and apply take the matrix to get maximum of every single row.
+lapply(Weather, function(x) apply(x, 1, max)) #the same result but not preferred
+#tidy up
+sapply(Weather, apply, 1, max)
+sapply(Weather, apply, 1, min)
+
+#which.max
+?which.max
+which.max(Chicago[1,]) 
+names(which.max(Chicago[1,]))
+
+#we will have apply - to iterate over rows of the matrices
+#and we will have lapply or sapply - to iterate over components of the list
+apply(Chicago, 1, function(x) names(which.max(x)))
+lapply(Weather, function(y) apply(y, 1, function(x) names(which.max(x))))
+sapply(Weather, function(y) apply(y, 1, function(x) names(which.max(x))))
+
+
+
 
